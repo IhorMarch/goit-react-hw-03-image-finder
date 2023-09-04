@@ -4,8 +4,7 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
 import { Modal } from './Modal/Modal';
-import { serviceSearch,deleteQuizById } from './API';
-import { perPage } from './API';
+import { serviceSearch, perPage } from './API';
 
 import Notiflix from 'notiflix';
 import { GlobalStyle } from './GlobalStyles';
