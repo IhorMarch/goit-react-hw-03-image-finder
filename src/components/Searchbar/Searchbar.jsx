@@ -5,22 +5,22 @@ import { BsSearch } from 'react-icons/bs';
 
 export class Searchbar extends React.Component {
     state = {
-   searchName: '',  
-   query: '',
+        query: '',
+        
     };
     
 
     handleSubmit = event => {
         event.preventDefault();
-        const searchQuery = event.target.elements.searchName.value.trim();
+        // const searchQuery = event.target.elements.searchName.value.trim();
     
-        this.props.onSubmit(searchQuery);
-        event.target.reset();
+        this.props.onSubmit(this.state.query);
+        this.setState({ query: "" });
     }
       
 
     handleChange = event => {
-   this.setState({ query: event.target.value });
+     this.setState({ query: event.target.value });
     };
     
 

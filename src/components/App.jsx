@@ -21,7 +21,8 @@ export class App extends Component {
     error: null,
     perPage: perPage,
     total: '',
-    largeImg:''
+    largeImg: '',
+    allpages:''
   };
 
 
@@ -54,6 +55,7 @@ export class App extends Component {
               images: [...prevState.images, ...imgArr],
               error: '',
               total: data.totalHits,
+              allpages:Math.ceil(data.totalHits / 12 ),
               largeImg:data.hits.largeImageURL
             }));
           }
@@ -112,7 +114,7 @@ export class App extends Component {
           <Searchbar onSubmit={this.handleSubmit} />
           {this.state.images.length > 0 && <ImageGallery images={this.state.images} onOpen={this.handleSelectImage} />}
           {this.state.loading && <Loader />}
-          {this.state.images.length > 0 && this.state.total>this.state.perPage  && <Button onClick={this.handleLoadMore} />}
+          {this.state.images.length > 0 && this.state.total>this.state.perPage&&this.state.page<=this.state.allpages  && <Button onClick={this.handleLoadMore} />}
 
 
           {this.state.largeImg&& <Modal largeImage={this.state.largeImg} onClose={this.closeModal}/>}
